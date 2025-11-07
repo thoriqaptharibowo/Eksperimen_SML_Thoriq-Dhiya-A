@@ -2,14 +2,15 @@ name: Run Specific Python Script
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-  workflow_dispatch: # Allows manual running from the GitHub UI
+    branches:
+      - main
 
 jobs:
   run-python-file:
-    runs-on: ubuntu-latest # The environment where the job will run
+    runs-on: ubuntu-latest 
 
     steps:
       - name: Checkout repository
@@ -18,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.19.9'
+          python-version: '3.13.9'
 
       - name: Install dependencies (Optional)
         run: |
